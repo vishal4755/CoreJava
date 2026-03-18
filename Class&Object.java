@@ -35,6 +35,7 @@ package com.tka.classandobject;
 public class Main {
 
 	public static void main(String[] args) {
+		// Laptop
 		Laptop Asus = new Laptop();
 		System.out.println();
 		System.out.println();
@@ -42,7 +43,7 @@ public class Main {
 		System.out.println( "Asus Ram = " + (Asus.ram = 16)+ " GB");
 		
 		System.out.println("--------------");
-		
+		// Employee
 		Employee e1 = new Employee();
 		System.out.println("Employee Id = " +(e1.id = 101));
 		System.out.println("Employee Name = " +(e1.name= "Naman"));
@@ -50,7 +51,7 @@ public class Main {
 		
 		System.out.println("--------------");
 		
-		
+		// Car
 		Car c1 = new Car();
 		System.out.println("Car Model = " + (c1.model = "Audi"));
 		System.out.println("Car Price = " + (c1.price = 1450000));
@@ -58,7 +59,7 @@ public class Main {
 		
 		System.out.println("--------------------");
 		
-		
+		// Book
 		Book b1 = new Book();
 		System.out.println("Book Title = " + (b1.title = "Rich Dad Poor Dad"));
 		System.out.println("Book Author = " + (b1.author = "Robert Toru Kiyosaki"));
