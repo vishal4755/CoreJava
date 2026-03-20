@@ -1,0 +1,274 @@
+Practice Questions = 
+
+// 1. Char Pattern 
+A
+AB
+ABC
+ABCD
+ABCDE
+
+package com.tka.star;
+public class CharPatterns {
+	public static void main(String[] args) {
+		int n = 5;
+		for(int i = 0;i<=n;i++) {
+			for(int j = 0; j<=i;j++) {
+				System.out.print((char) ('A'+j));
+			}
+			System.out.println();
+		}
+	}
+}
+
+// 2. InvertedTriangle
+*
+**
+***
+****
+*****
+****
+***
+**
+*
+package com.tka.star;
+public class InvertedTriangle {
+	public static void main(String[] args) {
+		int n = 5;
+		for(int i = 1;i<=n;i++) {
+			for(int j = 1;j<=i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		for(int i = n-1;i>=1;i--) {
+			for(int j =1;j<=i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+
+// 3.  Binary Pattern
+1
+01
+101
+0101
+10101
+
+package com.tka.star;
+public class BinaryPattern {
+	public static void main(String[] args) {
+		int n = 5;
+		for(int i = 1;i<=n;i++) {
+			for(int j = 1;j<=i;j++) {
+				if((i+j)%2==0) {
+					System.out.print("1");
+				}else
+					System.out.print("0");
+			}
+			System.out.println();
+		}
+	}
+}
+
+// 4. X Parretn
+
+*   *
+ * *
+  *
+ * *
+*   *
+package com.tka.star;
+
+public class XPattern {
+
+	public static void main(String[] args) {
+
+        int n = 5;
+       
+
+        for (int i = 0; i <n; i++) {
+
+            for (int j =0; j <n; j++) {
+
+                if (i == j || i + j == n -1) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+
+            System.out.println();
+        } 
+	}
+}
+
+// 5. 
+Input a number (1–5) and print:
+1 → Java
+2 → Python
+3 → C++
+4 → JavaScript
+5 → SQL
+package com.tka;
+
+public class InputNumber1To5 {
+
+	public static void main(String[] args) {
+		int number = 4;
+		switch (number) {
+		case 1:
+			System.out.println("Java");
+			
+			break;
+			
+		case 2:
+			System.out.println("Python");
+			
+			break;
+		case 3:
+			System.out.println("C++");
+			
+			break;
+		case 4:
+			System.out.println("JavaScript");
+			
+			break;
+		case 5:
+			System.out.println("SQL");
+			
+			break;
+
+		default:
+			System.out.println("Invalid Input");
+			break;
+		}
+	}
+}
+// 6 .Create a program to calculate area:
+1 → Circle
+2 → Square
+3 → Rectangle
+package com.tka;
+
+public class AreaOfShapes {
+	public static void main(String[] args) {
+		float  side = 3.2f, area , side1 = 2.1f;
+		float pi = 3.14f;
+		int num = 3;
+		switch (num) {
+		case 1:
+			area = side * side;
+			System.out.println(" Area Of Square " + area);
+			break;
+		case 2:
+		  rea = side * side;
+			System.out.println(" Area Of Circle " + area );
+			break;
+		case 3:
+			area = side * side;
+			System.out.println(" Area Of Rectangle " + area);
+			break;
+		default:
+			System.out.println(" Invalid Choice ");
+			break;
+		}
+	}
+}
+
+// 7 . Input a number (1–3) and print:
+1 → "Login Success"
+2 → "Invalid Password"
+3 → "Account Locked"
+
+package com.tka;
+public class LoginForm {
+	public static void main(String[] args) {
+		int n= 1;
+		switch (n) {
+		case 1:
+			System.out.println("Login Success");
+			break;	
+		case 2:
+			System.out.println("Invalid Password");
+			break;		
+		case 3:
+			System.out.println("Account Locked");			
+			break;
+		default:
+			System.out.println(" Invalid Choice ");
+			break;
+		}
+	}
+}
+
+// 8. Create a class Student with variables:
+id, name
+Print student details using object
+-->
+public class Student {
+	int id;
+	String name;
+	}
+// main method
+public class Main {
+	public static void main(String[] args) {
+		Student s = new Student();
+		System.out.println("Student ID = " + (s.id = 101));
+		System.out.println("Student Name = " + (s.name = "Vishal "));
+}
+}
+
+// 9. Create a class Employee:
+id, salary
+Use if-else to check if salary > 50,000 → print "High Salary".
+-->
+public class Employee{
+	int id;
+	float salary;
+
+	void checkSalary() {
+		if(salary>50000) {
+			System.out.println("High Salary");
+		}else {
+			System.out.println("Low Salary");
+		}	
+	}	
+}
+// main method
+package com.tka;
+public class Main {
+public static void main(String[] args) {
+Employee e1 = new Employee();
+
+        e1.id = 101;
+        e1.salary = 60000;
+
+        e1.checkSalary();
+}
+}
+
+// 10. Create a class BankAccount:
+balance
+If balance < 1000 → print "Low Balance".
+-->
+public class BankAccount{
+	double balance;
+	void check() {
+		if(balance<1000) {
+			System.out.println("Low Balance");
+		}
+	}
+}
+// main method
+package com.tka;
+public class Main {
+public static void main(String[] args) {
+BankAccount b1 = new BankAccount();
+		b1.balance = 200;
+		b1.check();
+	}
+}
+
+
