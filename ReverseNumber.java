@@ -1,17 +1,16 @@
-package com.practice;
+package com.tks.practice;
 
 public class ReverseNumber {
-
-	public static void main(String[] args) {
-		int num = 56789;
+	int num = 1234;
+	public void display() {
 		int rev = 0;
-		while(num>0) {
-			rev = rev*10 + num%10;
-			num = num/10;
+		while(num!=0) {
+			rev = rev * 10 + num % 10;
+            num = num / 10;
 			
 		}
-		System.out.println(rev);
-				
+		System.out.println("Reverse Number of 1234 =  " + rev);
+
 	}
 
 }
