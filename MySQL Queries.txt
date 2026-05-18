@@ -1,0 +1,366 @@
+         *** MySQL Queries ***
+
+
+
+ 1. Create Database
+
+CREATE DATABASE college_db;
+
+ 2. Use Database
+
+USE college_db;
+
+ Table Queries
+
+ 3. Create Table
+
+CREATE TABLE student (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    city VARCHAR(50)
+);
+
+4. Show Tables
+
+SHOW TABLES;
+
+
+ 5. Describe Table
+
+DESC student;
+
+ 6. Rename Table
+
+RENAME TABLE student TO students;
+
+
+7. Delete Table
+
+DROP TABLE students;
+
+
+Insert Queries
+
+8. Insert Single Record
+
+INSERT INTO student VALUES (1, 'Vishal', 22, 'Pune');
+
+ 9. Insert Multiple Records
+
+INSERT INTO student VALUES
+(2, 'Rahul', 21, 'Mumbai'),
+(3, 'Kiran', 23, 'Nashik');
+
+ Select Queries
+
+ 10. Select All Data
+
+SELECT * FROM student;
+
+11. Select Specific Columns
+
+SELECT name, city FROM student;
+
+ 12. DISTINCT
+
+
+SELECT DISTINCT city FROM student;
+
+ WHERE Clause
+
+13. Equal Condition
+
+SELECT * FROM student WHERE city='Pune';
+
+ 14. AND Condition
+
+SELECT * FROM student WHERE age > 20 AND city='Pune';
+
+ 15. OR Condition
+
+
+SELECT * FROM student WHERE city='Pune' OR city='Mumbai';
+
+ 16. NOT Condition
+
+
+SELECT * FROM student WHERE NOT city='Pune';
+
+ Operators
+
+ 17. BETWEEN
+
+
+SELECT * FROM student WHERE age BETWEEN 20 AND 25;
+
+
+ 18. IN Operator
+
+SELECT * FROM student WHERE city IN ('Pune','Mumbai');
+
+ 19. LIKE Operator
+
+SELECT * FROM student WHERE name LIKE 'V%';
+
+
+20. Wildcards
+
+SELECT * FROM student WHERE name LIKE '%a%';
+
+Sorting
+
+ 21. ORDER BY ASC
+
+SELECT * FROM student ORDER BY age ASC;
+
+ 22. ORDER BY DESC
+
+
+SELECT * FROM student ORDER BY age DESC;
+
+ Update & Delete
+
+23. Update Record
+
+
+UPDATE student
+SET city='Delhi'
+WHERE id=1;
+
+ 24. Delete Record
+
+DELETE FROM student WHERE id=2;
+
+ 25. Delete All Records
+
+DELETE FROM student;
+
+ 26. Remove Table Completely
+
+DROP TABLE student;
+
+ ALTER Queries
+
+ 27. Add Column
+
+ALTER TABLE student
+ADD email VARCHAR(100);
+
+28. Modify Column
+
+ALTER TABLE student
+MODIFY age BIGINT;
+
+
+29. Drop Column
+
+ALTER TABLE student
+DROP COLUMN email;
+
+
+ Aggregate Functions
+
+30. COUNT
+
+SELECT COUNT(*) FROM student;
+
+ 31. MAX
+
+
+SELECT MAX(age) FROM student;
+
+
+32. MIN
+
+SELECT MIN(age) FROM student;
+
+ 33. AVG
+
+SELECT AVG(age) FROM student;
+
+34. SUM
+
+SELECT SUM(age) FROM student;
+
+
+ GROUP BY & HAVING
+
+ 35. GROUP BY
+
+SELECT city, COUNT(*)
+FROM student
+GROUP BY city;
+
+
+36. HAVING
+
+SELECT city, COUNT(*)
+FROM student
+GROUP BY city
+HAVING COUNT(*) > 1;
+
+Joins
+
+ 37. INNER JOIN
+
+SELECT s.name, c.course_name
+FROM student s
+INNER JOIN course c
+ON s.id = c.student_id;
+
+ 38. LEFT JOIN
+
+SELECT s.name, c.course_name
+FROM student s
+LEFT JOIN course c
+ON s.id = c.student_id;
+
+
+ 39. RIGHT JOIN
+
+SELECT s.name, c.course_name
+FROM student s
+RIGHT JOIN course c
+ON s.id = c.student_id;
+
+ 40. FULL JOIN (MySQL Alternative)
+
+SELECT * FROM student
+LEFT JOIN course
+ON student.id = course.student_id
+
+UNION
+
+SELECT * FROM student
+RIGHT JOIN course
+ON student.id = course.student_id;
+
+Constraints
+ 41. NOT NULL
+
+name VARCHAR(50) NOT NULL
+
+42. UNIQUE
+
+email VARCHAR(100) UNIQUE
+
+43. PRIMARY KEY
+
+id INT PRIMARY KEY
+ 44. FOREIGN KEY
+
+
+FOREIGN KEY(student_id) REFERENCES student(id)
+
+45. DEFAULT
+
+
+city VARCHAR(50) DEFAULT 'Pune'
+
+
+Subquery
+
+46. Subquery Example
+
+SELECT name
+FROM student
+WHERE age = (
+    SELECT MAX(age) FROM student
+);
+
+Views
+
+ 47. Create View
+
+CREATE VIEW student_view AS
+SELECT name, city FROM student;
+
+
+48. Show View Data
+
+
+SELECT * FROM student_view;
+
+
+Index
+
+ 49. Create Index
+
+CREATE INDEX idx_name
+ON student(name);
+
+ Auto Increment
+
+50. AUTO_INCREMENT
+
+id INT AUTO_INCREMENT PRIMARY KEY
+
+TCL Commands
+
+51. COMMIT
+
+COMMIT;
+
+52. ROLLBACK
+
+ROLLBACK;
+
+ 53. SAVEPOINT
+SAVEPOINT s1;
+
+ DCL Commands
+ 54. Grant Permission
+
+GRANT ALL PRIVILEGES
+ON college_db.*
+TO 'user'@'localhost';
+
+
+ 55. Revoke Permission
+
+
+REVOKE ALL PRIVILEGES
+ON college_db.*
+FROM 'user'@'localhost';
+
+ Truncate
+ 56. TRUNCATE Table
+
+TRUNCATE TABLE student;
+
+ Limit
+
+57. LIMIT
+
+
+SELECT * FROM student LIMIT 5;
+
+
+Case Statement
+
+ 58. CASE
+SELECT name,
+CASE
+    WHEN age >= 18 THEN 'Adult'
+    ELSE 'Minor'
+END AS status
+FROM student;
+
+Exists
+
+59. EXISTS
+SELECT name
+FROM student s
+WHERE EXISTS (
+    SELECT *
+    FROM course c
+    WHERE s.id = c.student_id
+);
+
+Union
+
+60. UNION
+SELECT name FROM student
+UNION
+SELECT name FROM teacher;
